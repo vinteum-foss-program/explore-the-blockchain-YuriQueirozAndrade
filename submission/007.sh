@@ -3,7 +3,7 @@ get_block_transaction() {
   bitcoin-cli getblock $(bitcoin-cli getblockhash $1) | jq '.tx'
 }
 
-transaction_array=($(get_block_transaction 123321 | jq -r '.[1:].[]'))
+transaction_array=($(get_block_transaction 123321 | jq -r '.[]'))
 
 for transaction in ${transaction_array[@]}
 do

@@ -4,7 +4,7 @@ get_block_transaction() {
 }
 
 coinbase_transaction=$(get_block_transaction 256128 | jq -r '.[0]')
-transaction_array=($(get_block_transaction 257343 | jq -r '.[1:].[]'))
+transaction_array=($(get_block_transaction 257343 | jq -r '.[]'))
 
 found=false
 
